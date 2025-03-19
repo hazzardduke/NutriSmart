@@ -1,5 +1,32 @@
-<div class="container text-center mt-5">
-    <h2>Iniciar sesión</h2>
-    <button (click)="login()" class="btn btn-primary mt-3">Iniciar sesión con Auth0</button>
+<div class="login-wrapper">
+  <div class="login-card">
+
+    <!-- Logo -->
+    <div class="login-logo">
+      <img src="assets/images/logo.jpeg" alt="Logo NutriSmart">
+    </div>
+
+    <!-- Encabezado -->
+    <div class="login-header">
+      <h2>NutriSmart</h2>
+      <p>Inicia sesión para continuar</p>
+    </div>
+
+    <!-- Botón -->
+    <div class="login-actions">
+      <button *ngIf="!isAuthenticated" (click)="login()" class="btn login-btn">
+        Iniciar Sesión
+      </button>
+      <div *ngIf="isAuthenticated">
+        <p>¡Bienvenido!</p>
+        <button (click)="logout()" class="btn logout-btn">Cerrar Sesión</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="login-footer">
+      <small>¿No tienes cuenta? <span>Contacta al administrador</span></small>
+    </div>
+
   </div>
-  
+</div>

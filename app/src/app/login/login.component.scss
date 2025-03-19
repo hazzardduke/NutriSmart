@@ -1,0 +1,98 @@
+// Variables de color
+$verde-claro: #d5e094;
+$verde-oliva: #a1c037;
+$marron-oscuro: #3e372d;
+$marron-fondo: #2e2a25;
+$naranja: #FF6600;
+$gris-texto: #6b6b6b;
+
+.login-wrapper {
+    background-color: $marron-fondo;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .login-card {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+  }
+  
+  .login-header {
+    text-align: center;
+    
+    h2 {
+      color: $marron-oscuro;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: $gris-texto;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .login-btn {
+    background-color: $verde-oliva;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    border: none;
+  
+    &:hover {
+      background-color: $naranja;
+      transform: scale(1.02);
+    }
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    border: 1px solid $marron-oscuro;
+    color: $marron-oscuro;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+  
+    &:hover {
+      background-color: $marron-oscuro;
+      color: #fff;
+    }
+  }
+  
+  .login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    
+    small {
+      color: $gris-texto;
+  
+      span {
+        color: $naranja;
+        font-weight: 500;
+      }
+    }
+  }
+  
