@@ -1,9 +1,20 @@
+<!-- Si el usuario está autenticado, se muestra el layout con sidebar y header -->
+<div *ngIf="auth.isAuthenticated$ | async; else loginTemplate" class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar">
+    <app-sidebar></app-sidebar>
+  </nav>
 
+  <!-- Page Content -->
+  <div id="content" class="content">
+    <app-header></app-header>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
 
-<main class="main">
-  <router-outlet />
-</main>
-
-
-
-
+<!-- Si no está autenticado, se muestra el contenido (por ejemplo, la página de login) -->
+<ng-template #loginTemplate>
+  <router-outlet></router-outlet>
+</ng-template>

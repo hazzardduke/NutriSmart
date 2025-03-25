@@ -1,0 +1,39 @@
+.dashboard-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    
+    h2 {
+      color: #3e372d;
+      margin-bottom: 1.5rem;
+    }
+  
+    .card {
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+      h5 {
+        color: #3e372d;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        color: #6c757d;
+      }
+    }
+  
+    .btn-outline-primary {
+      color: #a1c037;
+      border-color: #a1c037;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        background-color: #a1c037;
+        color: #fff;
+      }
+    }
+  }
+  

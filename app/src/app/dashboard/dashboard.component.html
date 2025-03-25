@@ -1,9 +1,17 @@
-<div class="container mt-5 text-center">
-    <h3>Bienvenido al Dashboard</h3>
-    <div *ngIf="auth.user$ | async as user">
-      <p>Nombre: {{ user.name }}</p>
-      <p>Email: {{ user.email }}</p>
-      <button (click)="logout()" class="btn btn-danger">Cerrar sesión</button>
-    </div>
+<div class="dashboard-container">
+  <h2>Dashboard de Cliente</h2>
+  <!-- Secciones de resumen, citas, recomendaciones, etc. -->
+  <div class="card">
+    <h5>Progreso Nutricional</h5>
+    <p>Detalles del progreso...</p>
   </div>
-  
+  <div class="card">
+    <h5>Próximas Citas</h5>
+    <p>Citas programadas en los próximos 7 días: <strong>[Fecha y Hora]</strong></p>
+  </div>
+  <div class="card">
+    <h5>Recomendaciones Recientes</h5>
+    <p>Consulta las últimas recomendaciones de tu nutricionista.</p>
+    <a href="#" class="btn btn-outline-primary">Ver detalles</a>
+  </div>
+</div>
