@@ -1,0 +1,28 @@
+<div class="chat-popup" id="chatPopup">
+  <div class="chat-header">
+    <h3>Nutribot</h3>
+    <button class="close-btn" (click)="closeChat()">×</button>
+  </div>
+
+  <div class="chat-messages">
+    <div class="message-container">
+      <img src="assets/images/bot-icon.png" alt="Bot" class="avatar">
+      <div class="message bot-message">Hola, ¿cómo puedo ayudarte hoy?</div>
+    </div>
+
+    <div class="message-container">
+      <img src="assets/images/user-icon.png" alt="Usuario" class="avatar-user">
+      <div class="message user-message">Quisiera información sobre planes nutricionales.</div>
+    </div>
+
+    <div class="message-container">
+      <img src="assets/images/bot-icon.png" alt="Bot" class="avatar">
+      <div class="message bot-message">Claro, ofrecemos planes personalizados según tus necesidades.</div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" placeholder="Escribe un mensaje...">
+    <button>Enviar</button>
+  </div>
+</div>

@@ -197,32 +197,32 @@
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .header-left,
   .header-right {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   /* Reducir tamaño del título y ocultar la ruta actual */
   .header-left .breadcrumb h1 {
     font-size: 1.2rem;
   }
-  
+
   .header-left .breadcrumb .current-path {
     display: none;
   }
-  
+
   /* Ajuste del buscador */
   .header-right .search-box input {
     width: 150px;
     padding: 0.5rem 1rem 0.5rem 2.5rem;
   }
-  
+
   .header-right .search-box input:focus {
     width: 180px;
   }
-  
+
   /* Opcional: podrías ocultar algunos elementos para mayor simplicidad */
   /* Ejemplo: ocultar notificaciones si el espacio es muy reducido */
   /* .header-right .notifications {
@@ -235,15 +235,15 @@
   .header {
     padding: 1rem;
   }
-  
+
   .header-right .user-info {
     display: none;
   }
-  
+
   .header-right .search-box input {
     width: 120px;
   }
-  
+
   .header-right .search-box input:focus {
     width: 150px;
   }
