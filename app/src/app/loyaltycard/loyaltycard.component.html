@@ -1,0 +1,25 @@
+<div class="loyalty-wrapper">
+    <div class="card">
+      <h2>Bienvenido, Emanuel Rodriguez</h2>
+      <p class="subtitle">Tu Tarjeta de Fidelidad</p>
+  
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example" alt="Código QR" />
+      </div>
+  
+      <div class="flames">
+        <ng-container *ngFor="let _ of llamitas">
+          <span class="flame">🔥</span>
+        </ng-container>
+      </div>
+  
+      <p class="info">Cuando llegues a <strong>7</strong> consultas nutricionales, puedes reclamar tu recompensa</p>
+  
+      <div class="btn-group">
+        <button class="btn-primary">Canjear Puntos</button>
+      </div>
+  
+      <p class="powered">Powered by <a href="#">Bonfire Technologies</a></p>
+    </div>
+  </div>
+  

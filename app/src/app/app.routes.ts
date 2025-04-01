@@ -11,4 +11,5 @@ export const routes: Routes = [
   { path: 'profile', component: PersonalrecordComponent },
   { path: 'goals', component: GoalsComponent },
   { path: 'appoiments', component: AppoimentsComponent },
+  {path: 'loyaltycard', loadComponent: () => import('./loyaltycard/loyaltycard.component').then(m => m.LoyaltyCardComponent)}
 ];
