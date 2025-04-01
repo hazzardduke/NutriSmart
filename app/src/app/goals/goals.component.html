@@ -1,0 +1,73 @@
+<div class="objetivos-container">
+    <h2>Definir Objetivo Nutricional</h2>
+    <form class="form-objetivo">
+      <div class="form-group">
+        <label for="tipo">Tipo de Objetivo</label>
+        <select id="tipo" class="form-control">
+          <option>Pérdida de peso</option>
+          <option>Ganancia muscular</option>
+          <option>Aumentar porcentaje de agua</option>
+          <option>Mantenimiento</option>
+          <option>Reducir porcentaje de grasa</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="meta">Meta (porcentaje o cantidad)</label>
+        <input type="text" id="meta" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha Estimada</label>
+        <input type="date" id="fecha" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-success">Guardar Objetivo</button>
+    </form>
+  
+    <hr />
+  
+    <h2>Mis Objetivos</h2>
+    <div class="objetivo" *ngFor="let obj of objetivos">
+      <h4>{{ obj.nombre }}</h4>
+      <p>{{ obj.descripcion }}</p>
+      <p><strong>Fecha meta:</strong> {{ obj.fecha }}</p>
+      <label>Progreso: {{ obj.progreso }}%</label>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        [(ngModel)]="obj.progreso"
+        class="form-range"
+      />
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="obj.progreso"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          {{ obj.progreso }}%
+        </div>
+      </div>
+    </div>
+  
+    <hr />
+  
+    <h2>Recomendaciones del Nutricionista</h2>
+    <div class="recomendacion" *ngFor="let rec of recomendaciones">
+      <p><strong>{{ rec.fecha }}</strong>: {{ rec.resumen }}</p>
+      <button class="btn btn-sm btn-primary" (click)="abrirModal(rec)">
+        Ver Detalles
+      </button>
+    </div>
+  
+    <!-- Modal -->
+    <div class="modal-bg" *ngIf="selectedRecomendacion">
+      <div class="modal-box">
+        <h4>Recomendación del {{ selectedRecomendacion.fecha }}</h4>
+        <p>{{ selectedRecomendacion.comentario }}</p>
+        <button class="btn btn-danger mt-3" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  

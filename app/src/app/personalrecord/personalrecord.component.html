@@ -1,0 +1,121 @@
+<div class="expediente-container container">
+    <h2 class="text-center my-4">Expediente Personal</h2>
+    
+    <!-- Sección de Foto de Perfil -->
+    <div class="profile-picture-section text-center mb-4">
+      <img src="assets/images/logo.jpeg" alt="Foto de Perfil" class="profile-picture img-fluid">
+      <div class="picture-actions mt-2">
+        <button class="btn custom-btn me-2">Actualizar Foto</button>
+        <button class="btn custom-btn secondary-btn">Eliminar Foto</button>
+      </div>
+      <div class="update-message mt-1">
+        <small class="text-success">Foto actualizada con éxito</small>
+      </div>
+    </div>
+    
+    <!-- Sección de Datos Personales -->
+    <div class="personal-info-section mb-4">
+      <h3 class="mb-3">Datos Personales</h3>
+      <form>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="form-group d-flex gap-5">
+              <label for="nombre">Nombre:</label>
+              <input id="nombre" type="text" class="form-control custom-input" placeholder="Ingrese su nombre" value="Juan" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="apellidos">Apellidos:</label>
+              <input id="apellidos" type="text" class="form-control custom-input" placeholder="Ingrese sus apellidos" value="Pérez" readonly>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="direccion">Dirección:</label>
+              <input id="direccion" type="text" class="form-control custom-input" placeholder="Ingrese su dirección" value="Calle Falsa 123">
+              <small class="error-message">Campo requerido</small>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input id="telefono" type="text" class="form-control custom-input" placeholder="Ingrese su teléfono" value="88888888">
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="correo">Correo:</label>
+              <input id="correo" type="email" class="form-control custom-input" placeholder="Ingrese su correo" value="juan@mail.com">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Sección de Datos Nutricionales -->
+    <div class="nutritional-info-section mb-4">
+      <h3 class="mb-3">Datos Nutricionales</h3>
+      <form>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="peso">Peso:</label>
+              <input id="peso" type="text" class="form-control custom-input" placeholder="Ej. 75kg" value="75kg">
+              <small class="error-message">Formato inválido</small>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="estatura">Estatura:</label>
+              <input id="estatura" type="text" class="form-control custom-input" placeholder="Ej. 1.70m" value="1.70m">
+              <small class="error-message">Formato inválido</small>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mt-2">
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <label for="porcentaje-grasa">% Grasa:</label>
+              <input id="porcentaje-grasa" type="text" class="form-control custom-input" placeholder="Ej. 15.5%" value="15.5%">
+              <small class="error-message">Formato inválido</small>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <label for="porcentaje-musculo">% Músculo:</label>
+              <input id="porcentaje-musculo" type="text" class="form-control custom-input" placeholder="Ej. 40.0%" value="40.0%">
+              <small class="error-message">Formato inválido</small>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <label for="porcentaje-agua">% Agua:</label>
+              <input id="porcentaje-agua" type="text" class="form-control custom-input" placeholder="Ej. 50.0%" value="50.0%">
+              <small class="error-message">Formato inválido</small>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Sección de Restricciones Alimenticias -->
+    <div class="dietary-restrictions-section mb-4">
+      <h3 class="mb-3">Restricciones Alimenticias</h3>
+      <form>
+        <div class="form-group">
+          <label for="restricciones">Descripción:</label>
+          <textarea id="restricciones" class="form-control custom-input" rows="3" placeholder="Describa sus restricciones alimenticias"></textarea>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Sección de Guardado -->
+    <div class="save-section text-center">
+      <button class="btn custom-btn save-btn">Guardar Cambios</button>
+      <div class="update-success mt-2">
+        <small class="text-success">Actualización exitosa</small>
+      </div>
+    </div>
+  </div>
+  
