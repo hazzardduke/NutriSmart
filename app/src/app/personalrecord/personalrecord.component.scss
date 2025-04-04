@@ -1,4 +1,4 @@
-/* Contenedor principal */
+
 .expediente-container {
     background-color: #ffffff;
     border-radius: 10px;
@@ -11,7 +11,7 @@
     }
   }
   
-  /* Sección de Foto de Perfil */
+
   .profile-picture-section {
     .profile-picture {
       width: 120px;
@@ -31,7 +31,7 @@
     }
   }
   
-  /* Estilos personalizados para inputs y botones */
+
   .custom-input {
     border: 2px solid #a1c037 !important;
     border-radius: 5px !important;
@@ -49,7 +49,7 @@
     font-size: 0.8rem;
   }
   
-  /* Botones personalizados */
+ 
   .custom-btn {
     background-color: #a1c037 !important;
     border: none !important;
@@ -64,7 +64,7 @@
     }
   }
   
-  /* Botón secundario */
+
   .secondary-btn {
     background-color: #6c757d !important;
     &:hover {
@@ -72,7 +72,7 @@
     }
   }
   
-  /* Sección de Guardado */
+
   .save-section {
     button.save-btn {
       padding: 0.75rem 2rem;
@@ -80,7 +80,7 @@
     }
   }
   
-  /* Responsive adjustments usando media queries */
+
   @media (max-width: 768px) {
     .expediente-container {
       padding: 1rem;
@@ -106,15 +106,15 @@
   }
 
   .form-group {
-    margin-bottom: 1.5rem; /* Espacio entre filas de inputs */
+    margin-bottom: 1.5rem; 
     
     label {
       display: block;
-      margin-bottom: 0.5rem; /* Espacio entre label e input */
+      margin-bottom: 0.5rem; 
     }
     
     .custom-input {
-      margin-bottom: 0.5rem; /* Opcional, si deseas espacio extra debajo del input */
+      margin-bottom: 0.5rem; 
     }
   }
   

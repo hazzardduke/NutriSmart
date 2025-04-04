@@ -7,13 +7,11 @@
   </div>
 
   <div class="header-right">
-    <!-- Buscador -->
     <div class="search-box">
       <i class="fas fa-search"></i>
       <input type="text" placeholder="Buscar...">
     </div>
 
-    <!-- Notificaciones -->
     <div class="notifications">
       <button class="notification-btn">
         <i class="fas fa-bell"></i>
@@ -21,7 +19,7 @@
       </button>
     </div>
 
-    <!-- Perfil de Usuario -->
+
     <div class="user-profile" (click)="toggleUserMenu()">
       <img src="assets/images/logo.jpeg" alt="User Avatar" class="avatar">
       <div class="user-info">
@@ -30,7 +28,6 @@
       </div>
       <i class="fas fa-chevron-down"></i>
 
-      <!-- Menú desplegable del usuario -->
       <div class="user-menu" [class.active]="isUserMenuOpen">
         <a href="#" class="menu-item">
           <i class="fas fa-user"></i>

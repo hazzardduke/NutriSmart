@@ -1,0 +1,167 @@
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.form-section {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.grid-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  min-width: 180px;
+}
+
+.btn-save {
+  background-color: #a1c037;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #8cab2c;
+}
+
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.plans-table th,
+.plans-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.plans-table th {
+  background-color: #a1c037;
+  color: white;
+}
+
+.btn-action {
+  background: #a1c037;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  background: #8cab2c;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Calendario */
+.calendar-controls {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calendar-wrapper {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.cal-month-view,
+.cal-week-view,
+.cal-day-view {
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .cal-cell {
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: top;
+    border-radius: 8px;
+    height: 100px;
+  }
+
+  .cal-cell-top {
+    font-weight: bold;
+    color: #444;
+  }
+
+  .cal-event {
+    background-color: #a1c037 !important;
+    color: white !important;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+}

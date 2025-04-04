@@ -3,7 +3,6 @@
       <h2>Bienvenido, John Doe</h2>
       <p class="subtitle">Tu Tarjeta de Fidelidad</p>
   
-      <!-- Sección de estrellas dinámicas -->
       <div class="stars">
         <span *ngFor="let star of getStars(currentStamps)">⭐</span>
         <span *ngFor="let empty of getEmptyStars(currentStamps)">☆</span>

@@ -2,26 +2,22 @@
     <h1>Gestión de Tarjetas de Fidelidad</h1>
     <br> <br> 
   
-    <!-- Mostrar mensaje de QR escaneado -->
     <div class="qr-container" *ngIf="scannedClient">
       <div class="qr-info">
         <img src="assets/images/QR-SCAN.png" alt="Código QR" />
       </div>
       <p class="scanned-message">Cliente escaneado: {{ scannedClient.name }}</p>
       
-      <!-- Botón general para agregar sello -->
       <button class="add-stamp-btn" (click)="addStampToClient()" [disabled]="!scannedClient || scannedClient.stamps >= maxStamps">
         ➕ Agregar Sello
       </button>
     </div>
   
-    <!-- Notificación emergente -->
     <div *ngIf="showNotification" class="notification">
       <p>✅ Sello agregado para el cliente: {{ scannedClient?.name }}</p>
     </div>
     <br>  <br>  <br>  <br> 
   
-    <!-- Información de clientes y progreso -->
     <h2>Clientes y su progreso</h2>
     <div class="clients-container">
       <div class="client-card" *ngFor="let client of clients">

@@ -5,6 +5,9 @@ import { PersonalrecordComponent } from './personalrecord/personalrecord.compone
 import { GoalsComponent } from './goals/goals.component';
 import { AppoimentsComponent } from './appoiments/appoiments.component';
 import { FidelityManagementComponent } from './fidelity-management/fidelity-management.component';
+import { NutritionalPlanComponent } from './nutritional-plan/nutritional-plan.component';
+import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
+
 
 
 export const routes: Routes = [
@@ -14,5 +17,7 @@ export const routes: Routes = [
   { path: 'goals', component: GoalsComponent },
   { path: 'appoiments', component: AppoimentsComponent },
   { path: 'fidelity-management', component: FidelityManagementComponent },
-  {path: 'loyaltycard', loadComponent: () => import('./loyaltycard/loyaltycard.component').then(m => m.LoyaltyCardComponent)}
+  { path: 'nutrional-plan', component: NutritionalPlanComponent },
+  { path: 'appoiments-managment', component:  AppointmentManagementComponent},
+  { path: 'loyaltycard', loadComponent: () => import('./loyaltycard/loyaltycard.component').then(m => m.LoyaltyCardComponent)}
 ];

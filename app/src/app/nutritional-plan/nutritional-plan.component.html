@@ -1,0 +1,134 @@
+<div class="container p-4">
+    <h1 class="text-2xl font-bold mb-4">Generación de Planes Nutricionales</h1>
+  
+    <!-- Crear Plan Nutricional -->
+    <div class="form-section">
+      <h2 class="section-title">Crear Plan Nutricional</h2>
+      <form>
+        <div class="grid-container">
+          <div>
+            <label>Nombre del Cliente:</label>
+            <input type="text" class="input" placeholder="Nombre del cliente" />
+          </div>
+          <div>
+            <label>Fecha:</label>
+            <input type="date" class="input" />
+          </div>
+          <div>
+            <label>Alimento:</label>
+            <select class="input" [(ngModel)]="selectedAlimento" name="alimento">
+              <option value="" disabled selected>Seleccioná un alimento</option>
+              <option *ngFor="let alimento of alimentos" [value]="alimento">{{ alimento }}</option>
+            </select>
+          </div>
+          <div>
+            <label>Porciones:</label>
+            <input type="number" class="input" [(ngModel)]="porciones" name="porciones"  />
+          </div>
+          <div>
+            <label>Tiempo de Comida:</label>
+            <select class="input" [(ngModel)]="tiempo" name="tiempo">
+              <option value="" disabled selected>Seleccioná el tiempo</option>
+              <option *ngFor="let t of tiempos" [value]="t">{{ t }}</option>
+            </select>
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="button" class="btn-save" (click)="agregarAlimento()">Agregar al Plan</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Lista dinámica -->
+    <div *ngIf="detallePlan.length > 0" class="mt-6">
+      <h3 class="text-lg font-semibold mb-2">Detalle del Plan Nutricional</h3>
+      <table class="plans-table">
+        <thead>
+          <tr>
+            <th>Alimento</th>
+            <th>Porciones</th>
+            <th>Tiempo de Comida</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of detallePlan; let i = index">
+            <td>{{ item.alimento }}</td>
+            <td>{{ item.porciones }}</td>
+            <td>{{ item.tiempo }}</td>
+            <td>
+              <button class="btn-export" (click)="eliminarAlimento(i)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Filtros -->
+    <div class="form-section">
+      <h2 class="section-title">Filtrar Planes</h2>
+      <div class="grid-container">
+        <input type="text" class="input" placeholder="Buscar por cliente" />
+        <input type="date" class="input" />
+      </div>
+    </div>
+  
+    <!-- Lista de planes existentes -->
+    <div class="form-section">
+      <h2 class="section-title">Planes Nutricionales Existentes</h2>
+      <table class="plans-table">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Fecha de Creación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>2025-04-04</td>
+            <td>
+              <button class="btn-action" (click)="verDetalles = true">Ver Detalles</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Modal fuera del flujo del contenido -->
+  <div *ngIf="verDetalles" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close" (click)="verDetalles = false">&times;</span>
+      <h2 class="section-title"> Tiempos de Comida (2200 kcal)</h2>
+      <div id="pdf-content">
+        <table class="plans-table">
+          <thead>
+            <tr>
+              <th>Alimentos</th>
+              <th>Porciones</th>
+              <th>Desayuno</th>
+              <th>Merienda #1</th>
+              <th>Almuerzo</th>
+              <th>Merienda #2</th>
+              <th>Cena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Lácteos</td><td>1</td><td></td><td>1</td><td></td><td></td><td></td></tr>
+            <tr><td>Vegetales</td><td>3</td><td>1</td><td></td><td>1</td><td></td><td>1</td></tr>
+            <tr><td>Frutas</td><td>3</td><td>1</td><td>1</td><td></td><td>1</td><td></td></tr>
+            <tr><td>Harinas</td><td>9</td><td>3</td><td></td><td>4</td><td></td><td>2</td></tr>
+            <tr><td>Proteínas</td><td>22</td><td>4</td><td>3</td><td>6</td><td>3</td><td>6</td></tr>
+            <tr><td>Grasas</td><td>3</td><td></td><td></td><td></td><td>3</td><td></td></tr>
+            <tr class="font-bold"><td>Total kcal</td><td>2200</td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <br>   
+      <button class="btn-export mt-4" (click)="exportarPDF()">Exportar como PDF</button>
+    </div>
+  </div>
+  

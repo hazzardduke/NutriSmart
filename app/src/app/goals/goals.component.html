@@ -1,34 +1,44 @@
-<div class="objetivos-container">
-    <h2>Definir Objetivo Nutricional</h2>
-    <form class="form-objetivo">
-      <div class="form-group">
-        <label for="tipo">Tipo de Objetivo</label>
-        <select id="tipo" class="form-control">
-          <option>Pérdida de peso</option>
-          <option>Ganancia muscular</option>
-          <option>Aumentar porcentaje de agua</option>
-          <option>Mantenimiento</option>
-          <option>Reducir porcentaje de grasa</option>
-          <option>Otro</option>
-        </select>
+<div class="container p-4">
+  <h1 class="text-2xl font-bold mb-4">Gestión de Objetivos Nutricionales</h1>
+
+  <!-- Definir Objetivo Nutricional -->
+  <div class="form-section">
+    <h2 class="section-title">Definir Objetivo Nutricional</h2>
+    <form>
+      <div class="grid-container">
+        <div>
+          <label for="tipo">Tipo de Objetivo</label>
+          <select id="tipo" class="input" [(ngModel)]="nuevoObjetivo.tipo" name="tipo">
+            <option>Pérdida de peso</option>
+            <option>Ganancia muscular</option>
+            <option>Aumentar porcentaje de agua</option>
+            <option>Mantenimiento</option>
+            <option>Reducir porcentaje de grasa</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label for="meta">Meta (porcentaje o cantidad)</label>
+          <input type="text" id="meta" class="input" [(ngModel)]="nuevoObjetivo.meta" name="meta" />
+        </div>
+        <div>
+          <label for="fecha">Fecha Estimada</label>
+          <input type="date" id="fecha" class="input" [(ngModel)]="nuevoObjetivo.fecha" name="fecha" />
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button type="button" class="btn-save" (click)="guardarObjetivo()">Guardar Objetivo</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="meta">Meta (porcentaje o cantidad)</label>
-        <input type="text" id="meta" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="fecha">Fecha Estimada</label>
-        <input type="date" id="fecha" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-success">Guardar Objetivo</button>
     </form>
-  
-    <hr />
-  
-    <h2>Mis Objetivos</h2>
+  </div>
+
+  <!-- Mis Objetivos -->
+  <div class="form-section">
+    <h2 class="section-title">Mis Objetivos</h2>
     <div class="objetivo" *ngFor="let obj of objetivos">
-      <h4>{{ obj.nombre }}</h4>
-      <p>{{ obj.descripcion }}</p>
+      <h4>{{ obj.tipo }}</h4>
+      <p>{{ obj.meta }}</p>
       <p><strong>Fecha meta:</strong> {{ obj.fecha }}</p>
       <label>Progreso: {{ obj.progreso }}%</label>
       <input
@@ -45,29 +55,89 @@
           [style.width.%]="obj.progreso"
           aria-valuemin="0"
           aria-valuemax="100"
-        >
-          {{ obj.progreso }}%
-        </div>
+        ></div>
+        <span class="progress-bar-text">{{ obj.progreso }}%</span> <!-- Mostrar el porcentaje -->
       </div>
     </div>
-  
-    <hr />
-  
-    <h2>Recomendaciones del Nutricionista</h2>
+  </div>
+
+  <hr />
+
+  <!-- Recomendaciones del Nutricionista -->
+  <div class="form-section">
+    <h2 class="section-title">Recomendaciones del Nutricionista</h2>
     <div class="recomendacion" *ngFor="let rec of recomendaciones">
       <p><strong>{{ rec.fecha }}</strong>: {{ rec.resumen }}</p>
       <button class="btn btn-sm btn-primary" (click)="abrirModal(rec)">
         Ver Detalles
       </button>
     </div>
-  
-    <!-- Modal -->
-    <div class="modal-bg" *ngIf="selectedRecomendacion">
-      <div class="modal-box">
-        <h4>Recomendación del {{ selectedRecomendacion.fecha }}</h4>
-        <p>{{ selectedRecomendacion.comentario }}</p>
-        <button class="btn btn-danger mt-3" (click)="cerrarModal()">Cerrar</button>
-      </div>
+  </div>
+
+  <!-- Modal Detalles -->
+  <div class="modal-bg" *ngIf="selectedRecomendacion">
+    <div class="modal-box">
+      <h4>Recomendación del {{ selectedRecomendacion.fecha }}</h4>
+      <p>{{ selectedRecomendacion.comentario }}</p>
+      <button class="btn btn-danger mt-3" (click)="cerrarModal()">Cerrar</button>
     </div>
   </div>
-  
+
+  <hr />
+
+  <!-- Planes Nutricionales Existentes -->
+  <div class="form-section">
+    <h2 class="section-title">Planes Nutricionales Existentes</h2>
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Fecha de Creación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>2025-04-04</td>
+          <td>
+            <button class="btn-action" (click)="verDetalles = true">Ver Detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal fuera del flujo del contenido -->
+<div *ngIf="verDetalles" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" (click)="verDetalles = false">&times;</span>
+    <h2 class="section-title">Detalles del Plan Nutricional</h2>
+    <div id="pdf-content">
+      <table class="plans-table">
+        <thead>
+          <tr>
+            <th>Alimentos</th>
+            <th>Porciones</th>
+            <th>Desayuno</th>
+            <th>Merienda #1</th>
+            <th>Almuerzo</th>
+            <th>Merienda #2</th>
+            <th>Cena</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Lácteos</td><td>1</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Vegetales</td><td>3</td><td>1</td><td></td><td>1</td><td></td><td>1</td></tr>
+          <tr><td>Frutas</td><td>3</td><td>1</td><td>1</td><td></td><td>1</td><td></td></tr>
+          <tr><td>Harinas</td><td>9</td><td>3</td><td></td><td>4</td><td></td><td>2</td></tr>
+          <tr><td>Proteínas</td><td>22</td><td>4</td><td>3</td><td>6</td><td>3</td><td>6</td></tr>
+          <tr><td>Grasas</td><td>3</td><td></td><td></td><td></td><td>3</td><td></td></tr>
+          <tr class="font-bold"><td>Total kcal</td><td>2200</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn-export mt-4" (click)="exportarPDF()">Exportar como PDF</button>
+  </div>
+</div>

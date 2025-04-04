@@ -1,90 +1,274 @@
-.objetivos-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  
-    h2 {
-      color: #3e372d;
-      margin-bottom: 1rem;
-    }
-  
-    .form-objetivo {
-      display: grid;
-      gap: 1rem;
-  
-      .form-group {
-        label {
-          display: block;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-        }
-  
-        input,
-        select {
-          width: 100%;
-          padding: 0.5rem;
-          border-radius: 6px;
-          border: 1px solid #ccc;
-        }
-      }
-  
-      .btn {
-        width: fit-content;
-      }
-    }
-  
-    .objetivo {
-      margin-bottom: 2rem;
-  
-      .progress {
-        height: 20px;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #e9ecef;
-  
-        .progress-bar {
-          background-color: #a1c037;
-          color: #fff;
-          font-weight: bold;
-          text-align: center;
-        }
-      }
-  
-      input[type='range'] {
-        width: 100%;
-        margin: 0.5rem 0;
-      }
-    }
-  
-    .recomendacion {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-left: 4px solid #a1c037;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-    }
-  
-    .modal-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-  
-      .modal-box {
-        background: white;
-        padding: 2rem;
-        border-radius: 8px;
-        max-width: 500px;
-      }
-    }
-  }
-  
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Títulos de secciones */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Estilos para formularios */
+.input, .btn-save {
+  font-size: 1rem;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.btn-save {
+  background-color: #a1c037; /* Verde */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn-save:hover {
+  background-color: #a1c037; /* Verde más oscuro */
+}
+
+/* Estilos para las tablas */
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.plans-table th, .plans-table td {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.plans-table th {
+  background-color: #a1c037; /* Verde */
+  color: white;
+}
+
+.plans-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.plans-table td {
+  color: #333;
+  text-align: center;
+}
+
+/* Barra de progreso con porcentaje */
+.progress {
+  position: relative;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #a1c037; /* Verde */
+  transition: width 0.3s ease;
+}
+
+.progress-bar-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Modales */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%; /* Ajustado al 80% del ancho */
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Botón de Exportar como PDF */
+.btn-export {
+  background-color: #a1c037; 
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block; 
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.btn-export:hover {
+  background-color: #a1c037; /* Verde más oscuro */
+}
+
+/* Botón de acción en tabla de planes nutricionales */
+.btn-action {
+  background: #a1c037; /* Verde */
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  background: #4b9f7b; /* Verde más oscuro */
+}
+
+/* Estilos para los objetivos */
+.objetivo {
+  background: #f9f9f9;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.objetivo h4 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.objetivo p {
+  color: #666;
+}
+
+.objetivo label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Mejoras en los botones */
+.btn-primary {
+  background-color: #a1c037; /* Verde */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #4b9f7b; /* Verde más oscuro */
+}
+
+/* Estilo para el formulario de objetivos */
+.grid-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo para los modales de "Ver detalles" */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-box h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.modal-box p {
+  color: #666;
+}
+
+.modal-box .btn-danger {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-box .btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.modal-box .btn-close {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
