@@ -1,24 +1,21 @@
 <div class="loyalty-wrapper">
-  <div class="card">
-  <h2>Bienvenido, John Doe</h2>
-  <p class="subtitle">Tu Tarjeta de Fidelidad</p>
-
-      <div class="qr-box">
-  <img src="assets/images/QR.png" alt="Código QR" />
-  </div>
-
-  <div class="stars">
-  <ng-container *ngFor="let star of [1, 2, 3, 4]">
-  <img src="assets/images/star.png" alt="Estrella" class="star-icon" />
-  </ng-container>
-  </div>
-
+    <div class="card">
+      <h2>Bienvenido, John Doe</h2>
+      <p class="subtitle">Tu Tarjeta de Fidelidad</p>
+  
+      <!-- Sección de estrellas dinámicas -->
+      <div class="stars">
+        <span *ngFor="let star of getStars(currentStamps)">⭐</span>
+        <span *ngFor="let empty of getEmptyStars(currentStamps)">☆</span>
+      </div>
+  
       <p class="info">
-        Cuando llegues a <strong>7</strong> consultas nutricionales, puedes reclamar tu recompensa
-  </p>
-
+        Cuando llegues a <strong>7</strong> consultas nutricionales, puedes reclamar tu recompensa.
+      </p>
+  
       <div class="btn-group">
-  <button class="btn-primary">Canjear Puntos</button>
+        <button class="btn-primary">Canjear Puntos</button>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
+  
