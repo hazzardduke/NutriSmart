@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .container {
   max-width: 1200px;
   margin: auto;
@@ -6,7 +5,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Títulos de secciones */
 .section-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -15,8 +13,8 @@
   text-align: left;
 }
 
-/* Estilos para formularios */
-.input, .btn-save {
+.input,
+.btn-save {
   font-size: 1rem;
 }
 
@@ -28,7 +26,7 @@
 }
 
 .btn-save {
-  background-color: #a1c037; /* Verde */
+  background-color: #a1c037;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -38,17 +36,17 @@
 }
 
 .btn-save:hover {
-  background-color: #a1c037; /* Verde más oscuro */
+  background-color: #a1c037;
 }
 
-/* Estilos para las tablas */
 .plans-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2rem;
 }
 
-.plans-table th, .plans-table td {
+.plans-table th,
+.plans-table td {
   border: 1px solid #ddd;
   padding: 1rem;
   text-align: center;
@@ -56,7 +54,7 @@
 }
 
 .plans-table th {
-  background-color: #a1c037; /* Verde */
+  background-color: #a1c037;
   color: white;
 }
 
@@ -69,32 +67,6 @@
   text-align: center;
 }
 
-/* Barra de progreso con porcentaje */
-.progress {
-  position: relative;
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #a1c037; /* Verde */
-  transition: width 0.3s ease;
-}
-
-.progress-bar-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-  color: black;
-  font-size: small;
-}
-
-/* Modales */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -112,7 +84,7 @@
   background: white;
   padding: 2rem;
   border-radius: 12px;
-  width: 80%; /* Ajustado al 80% del ancho */
+  width: 80%;
   max-width: 800px;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -128,15 +100,14 @@
   color: #333;
 }
 
-/* Botón de Exportar como PDF */
 .btn-export {
-  background-color: red; 
+  background-color: red;
   color: white;
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  display: block; 
+  display: block;
   margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -144,12 +115,11 @@
 }
 
 .btn-export:hover {
-  background-color: #c0392b; /* Verde más oscuro */
+  background-color: #c0392b;
 }
 
-/* Botón de acción en tabla de planes nutricionales */
 .btn-action {
-  background: #a1c037; /* Verde */
+  background: #a1c037;
   color: white;
   border: none;
   padding: 0.3rem 0.7rem;
@@ -158,10 +128,9 @@
 }
 
 .btn-action:hover {
-  background: #4b9f7b; /* Verde más oscuro */
+  background: #4b9f7b;
 }
 
-/* Estilos para los objetivos */
 .objetivo {
   background: #f9f9f9;
   padding: 1.25rem;
@@ -185,44 +154,19 @@
   color: #333;
 }
 
-/* Mejoras en los botones */
 .btn-primary {
-  background-color: #a1c037; /* Verde */
+  background-color: #a1c037;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
-
- 
- 
-
 }
 
 .btn-primary:hover {
-  background-color: #4b9f7b; /* Verde más oscuro */
+  background-color: #4b9f7b;
 }
 
-/* Estilo para el formulario de objetivos */
-.grid-container {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.input {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-}
-
-.label {
-  font-weight: bold;
-  color: #333;
-}
-
-/* Estilo para los modales de "Ver detalles" */
 .modal-bg {
   position: fixed;
   top: 0;
@@ -236,108 +180,51 @@
   z-index: 9999;
 }
 
-.modal-box {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 700px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.detalles {
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal-box h4 {
-  font-size: 1.25rem;
+.detalles h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
   margin-bottom: 1rem;
 }
 
-.modal-box p {
-  color: #666;
+.detalles p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-.modal-box .btn-danger {
-  background-color: #e74c3c;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+.detalles .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-left: 40%;
+}
+
+.detalles .btn-danger {
+  background-color: #dc3545;
   border: none;
-  cursor: pointer;
 }
 
-.modal-box .btn-danger:hover {
-  background-color: #c0392b;
+.detalles .btn-danger:hover {
+  background-color: #c82333;
 }
 
-.modal-box .btn-close {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 1.5rem;
-  cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+.detalles .btn-danger:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 
-.modal-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); // fondo oscuro con transparencia
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-
-  .detalles {
-    background-color: #fff;
-    padding: 2rem 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 90%;
-    animation: fadeIn 0.3s ease-in-out;
-
-    h4 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .btn {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      margin-left: 40%;
-
-    }
-
-    .btn-danger {
-      background-color: #dc3545;
-      border: none;
-
-      &:hover {
-        background-color: #c82333;
-      }
-
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
-      }
-    }
-  }
-}
-
-// Animación de entrada suave
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -349,57 +236,50 @@
   }
 }
 
-.form-section {
-  .objetivo {
-    margin-bottom: 2rem;
-
-    .progress-wrapper {
-      position: relative;
-      background-color: #e0e0e0;
-      border-radius: 1rem;
-      height: 20px;
-      margin-top: 1rem;
-      overflow: hidden;
-
-      .progress-bar {
-        background-color: #9ac73c;
-        height: 100%;
-        transition: width 0.3s ease;
-      }
-
-      .thumb {
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 18px;
-        height: 18px;
-        background-color: #007bff;
-        border-radius: 50%;
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      .progress-text {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: #333;
-        z-index: 3;
-      }
-    }
-
-    .range-hidden {
-      width: 100%;
-      height: 0;
-      opacity: 0;
-      pointer-events: all;
-      position: relative;
-      top: -24px; // para que el input siga funcionando con el mouse
-      z-index: 4;
-    }
-  }
+.form-section .objetivo .progress-wrapper {
+  position: relative;
+  background-color: #e0e0e0;
+  border-radius: 1rem;
+  height: 20px;
+  margin-top: 1rem;
+  overflow: hidden;
 }
 
+.form-section .objetivo .progress-wrapper .progress-bar {
+  background-color: #9ac73c;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.form-section .objetivo .progress-wrapper .thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background-color: #007bff;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.form-section .objetivo .progress-wrapper .progress-text {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  z-index: 3;
+}
+
+.form-section .objetivo .range-hidden {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  pointer-events: all;
+  position: relative;
+  top: -24px;
+  z-index: 4;
+}

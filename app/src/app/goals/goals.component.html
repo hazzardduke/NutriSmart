@@ -1,7 +1,6 @@
 <div class="container p-4">
   <h1 class="text-2xl font-bold mb-4">Gestión de Objetivos Nutricionales</h1>
   <hr />  <br />
-  <!-- Definir Objetivo Nutricional -->
   <div class="form-section">
     
     <form>
@@ -35,7 +34,6 @@
     </form>
   </div>
   <hr /> <br />
-  <!-- Mis Objetivos -->
   <div class="form-section">
     <div class="objetivo">
     <h2 class="section-title">Mis Objetivos</h2>
@@ -46,7 +44,6 @@
   
       <p><strong>Progreso:</strong> {{ obj.progreso }}%</p>
   
-      <!-- Barra de progreso personalizada -->
       <div class="progress-wrapper">
         <div
           class="progress-bar"
@@ -60,7 +57,6 @@
       </div>
       
   
-      <!-- Slider escondido pero funcional -->
       <input
         type="range"
         min="0"
@@ -74,7 +70,6 @@
 
   <hr /> <br>
 
-  <!-- Recomendaciones del Nutricionista -->
   <div class="objetivo">
     <h2 class="section-title">Recomendaciones del Nutricionista</h2>
     <div class="recomendacion" *ngFor="let rec of recomendaciones">
@@ -86,7 +81,6 @@
     </div>
   </div>
 
-  <!-- Modal Detalles -->
   <div class="modal-bg" *ngIf="selectedRecomendacion">
     <div class="detalles">
       <h4>Recomendación del {{ selectedRecomendacion.fecha }}</h4>
@@ -98,7 +92,6 @@
 
   <hr /> <br>
 
-  <!-- Planes Nutricionales Existentes -->
   <div class="objetivo">
     <h2 class="section-title">Planes Nutricionales Existentes</h2>
     <table class="plans-table">
