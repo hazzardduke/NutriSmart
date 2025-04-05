@@ -1,11 +1,13 @@
 <div class="container p-4">
   <h1 class="text-2xl font-bold mb-4">Gestión de Objetivos Nutricionales</h1>
-
+  <hr />  <br />
   <!-- Definir Objetivo Nutricional -->
   <div class="form-section">
-    <h2 class="section-title">Definir Objetivo Nutricional</h2>
+    
     <form>
-      <div class="grid-container">
+      
+      <div class="objetivo" >
+        <h2 class="section-title">Definir Objetivo Nutricional</h2>
         <div>
           <label for="tipo">Tipo de Objetivo</label>
           <select id="tipo" class="input" [(ngModel)]="nuevoObjetivo.tipo" name="tipo">
@@ -32,61 +34,72 @@
       </div>
     </form>
   </div>
-
+  <hr /> <br />
   <!-- Mis Objetivos -->
   <div class="form-section">
+    <div class="objetivo">
     <h2 class="section-title">Mis Objetivos</h2>
     <div class="objetivo" *ngFor="let obj of objetivos">
       <h4>{{ obj.tipo }}</h4>
       <p>{{ obj.meta }}</p>
       <p><strong>Fecha meta:</strong> {{ obj.fecha }}</p>
-      <label>Progreso: {{ obj.progreso }}%</label>
+  
+      <p><strong>Progreso:</strong> {{ obj.progreso }}%</p>
+  
+      <!-- Barra de progreso personalizada -->
+      <div class="progress-wrapper">
+        <div
+          class="progress-bar"
+          [style.width.%]="obj.progreso"
+        ></div>
+        <div
+          class="thumb"
+          [style.left.%]="obj.progreso"
+        ></div>
+        <span class="progress-text">{{ obj.progreso }}%</span>
+      </div>
+      
+  
+      <!-- Slider escondido pero funcional -->
       <input
         type="range"
         min="0"
         max="100"
         [(ngModel)]="obj.progreso"
-        class="form-range"
+        class="range-hidden"
       />
-      <div class="progress">
-        <div
-          class="progress-bar"
-          role="progressbar"
-          [style.width.%]="obj.progreso"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
-        <span class="progress-bar-text">{{ obj.progreso }}%</span> <!-- Mostrar el porcentaje -->
-      </div>
     </div>
   </div>
+  
 
-  <hr />
+  <hr /> <br>
 
   <!-- Recomendaciones del Nutricionista -->
-  <div class="form-section">
+  <div class="objetivo">
     <h2 class="section-title">Recomendaciones del Nutricionista</h2>
     <div class="recomendacion" *ngFor="let rec of recomendaciones">
       <p><strong>{{ rec.fecha }}</strong>: {{ rec.resumen }}</p>
       <button class="btn btn-sm btn-primary" (click)="abrirModal(rec)">
         Ver Detalles
       </button>
+      <br>      <br> 
     </div>
   </div>
 
   <!-- Modal Detalles -->
   <div class="modal-bg" *ngIf="selectedRecomendacion">
-    <div class="modal-box">
+    <div class="detalles">
       <h4>Recomendación del {{ selectedRecomendacion.fecha }}</h4>
       <p>{{ selectedRecomendacion.comentario }}</p>
+      <br>
       <button class="btn btn-danger mt-3" (click)="cerrarModal()">Cerrar</button>
     </div>
   </div>
 
-  <hr />
+  <hr /> <br>
 
   <!-- Planes Nutricionales Existentes -->
-  <div class="form-section">
+  <div class="objetivo">
     <h2 class="section-title">Planes Nutricionales Existentes</h2>
     <table class="plans-table">
       <thead>
