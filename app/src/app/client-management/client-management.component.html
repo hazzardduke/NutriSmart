@@ -1,0 +1,66 @@
+<div class="container-gestion">
+    <h2><i class="fas fa-users"></i> Gestión de Clientes</h2>
+  
+    <!-- Buscador -->
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar cliente por nombre..."
+      [(ngModel)]="busqueda"
+    />
+  
+    <!-- Lista de clientes -->
+    <div class="clientes-lista">
+      <div
+        class="cliente-card"
+        *ngFor="let cliente of clientesFiltrados"
+        (click)="seleccionarCliente(cliente)"
+      >
+        <h4>{{ cliente.nombre }}</h4>
+        <span [class.activo]="cliente.estado === 'Activo'" [class.inactivo]="cliente.estado !== 'Activo'">
+          {{ cliente.estado }}
+        </span>
+      </div>
+    </div>
+  
+    <!-- Perfil del cliente -->
+    <div *ngIf="clienteSeleccionado" class="cliente-detalle">
+      <h3>{{ clienteSeleccionado.nombre }} {{ clienteSeleccionado.perfil.apellidos }}</h3>
+      <p><strong>Dirección:</strong> {{ clienteSeleccionado.perfil.direccion }}</p>
+      <p><strong>Fecha de nacimiento:</strong> {{ clienteSeleccionado.perfil.nacimiento }}</p>
+      <p><strong>Teléfono:</strong> {{ clienteSeleccionado.perfil.telefono }}</p>
+      <p><strong>Correo:</strong> {{ clienteSeleccionado.perfil.correo }}</p>
+      <p><strong>Peso:</strong> {{ clienteSeleccionado.perfil.peso }}</p>
+      <p><strong>Estatura:</strong> {{ clienteSeleccionado.perfil.estatura }}</p>
+      <p><strong>% Grasa:</strong> {{ clienteSeleccionado.perfil.grasa }}</p>
+      <p><strong>% Músculo:</strong> {{ clienteSeleccionado.perfil.musculo }}</p>
+      <p><strong>% Agua:</strong> {{ clienteSeleccionado.perfil.agua }}</p>
+  
+      <!-- Objetivos -->
+      <h4 class="mt-4">Objetivos</h4>
+      <div class="objetivo-card" *ngFor="let obj of clienteSeleccionado.objetivos" (click)="seleccionarObjetivo(obj)">
+        <strong>{{ obj.tipo }}</strong> - <em>{{ obj.estado }}</em>
+      </div>
+  
+      <!-- Historial y recomendaciones -->
+      <div *ngIf="objetivoSeleccionado" class="historial">
+        <h5>Historial de Avances</h5>
+        <ul>
+          <li *ngFor="let h of objetivoSeleccionado.historial">
+            {{ h.fecha }} - {{ h.progreso }}
+          </li>
+        </ul>
+  
+        <div class="form-group mt-3">
+          <label>Agregar recomendación</label>
+          <textarea
+            class="form-control"
+            [(ngModel)]="clienteSeleccionado.recomendacion"
+            rows="3"
+          ></textarea>
+          <button class="btn btn-success mt-2" (click)="enviarRecomendacion()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

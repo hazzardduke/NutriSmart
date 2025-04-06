@@ -137,7 +137,7 @@
   transition: transform 0.3s ease;
 }
 
-.header-right .user-profile:hover i {
+.header-right .user-profile:hover i.fa-chevron-down {
   transform: rotate(180deg);
 }
 
