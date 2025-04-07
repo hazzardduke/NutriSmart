@@ -14,11 +14,15 @@ interface Cita {
 }
 
 @Component({
-  standalone: true,
   selector: 'app-appointment-management',
+  standalone: true,
   templateUrl: './appointment-management.component.html',
   styleUrls: ['./appointment-management.component.scss'],
-  imports: [CommonModule, FormsModule, CalendarModule]
+  imports: [
+    CommonModule,
+    FormsModule,
+    CalendarModule 
+  ]
 })
 export class AppointmentManagementComponent {
   nuevoCliente = '';
@@ -50,7 +54,7 @@ export class AppointmentManagementComponent {
       recomendaciones: ''
     },
     {
-      cliente: 'John Doe',
+      cliente: 'Carlos Ramírez',
       fecha: '2025-04-01',
       hora: '09:00',
       estado: 'Realizada',
@@ -67,7 +71,7 @@ export class AppointmentManagementComponent {
     }
   ];
 
-  citasHistorial: Cita[] = [...this.citasProgramadas]; // Mostrar mismas citas como historial por ahora
+  citasHistorial: Cita[] = [...this.citasProgramadas];
 
   get citasHistorialFiltrado(): Cita[] {
     if (!this.filtroInicio || !this.filtroFin) return this.citasHistorial;

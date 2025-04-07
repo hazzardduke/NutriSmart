@@ -1,136 +1,132 @@
 <div class="container p-4">
-    <h1 class="text-2xl font-bold mb-4">Gestión de Citas</h1>
-  
+  <h1 class="text-2xl font-bold mb-4">Gestión de Citas</h1>
 
-    <div class="form-section">
-      <h2 class="section-title">Agendar Nueva Cita</h2>
-      <form>
-        <div class="grid-container">
-          <div>
-            <label>Cliente:</label>
-            <input type="text" class="input" [(ngModel)]="nuevoCliente" name="cliente" placeholder="Nombre del cliente" />
-          </div>
-          <div>
-            <label>Fecha:</label>
-            <input type="date" class="input" [(ngModel)]="nuevaFecha" name="fecha" />
-          </div>
-          <div>
-            <label>Hora:</label>
-            <select class="input" [(ngModel)]="nuevaHora" name="hora">
-              <option *ngFor="let hora of horasDisponibles" [value]="hora" [disabled]="horariosOcupados.includes(hora)">
-                {{ hora }}
-              </option>
-            </select>
-          </div>
-          <div>
-            <label>&nbsp;</label>
-            <button type="button" class="btn-save" (click)="agendarCita()">Agendar Cita</button>
-          </div>
-        </div>
-      </form>
-      <p class="text-green-700 mt-2" *ngIf="mensajeCita">{{ mensajeCita }}</p>
-    </div>
-  
-    <div class="form-section">
-      <h2 class="section-title">Citas Programadas</h2>
-      <table class="plans-table">
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citasProgramadas">
-            <td>{{ cita.cliente }}</td>
-            <td>{{ cita.fecha }}</td>
-            <td>{{ cita.hora }}</td>
-            <td>{{ cita.estado }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <div class="form-section">
-      <h2 class="section-title">Calendario de Citas</h2>
-  
-      <div class="calendar-controls">
-        <label for="calendarView">Vista:</label>
-        <select id="calendarView" class="input" [(ngModel)]="currentView">
-          <option value="month">Mes</option>
-          <option value="week">Semana</option>
-          <option value="day">Día</option>
-        </select>
-      </div>
-  
-      <div class="calendar-wrapper">
-        <mwl-calendar-week-view
-          *ngIf="currentView === 'week'"
-          [viewDate]="viewDate"
-          [events]="eventosCalendario"
-          (eventClicked)="mostrarDetalles($event.event.meta.cita)"
-          [refresh]="refresh">
-        </mwl-calendar-week-view>
-  
-        <mwl-calendar-day-view
-          *ngIf="currentView === 'day'"
-          [viewDate]="viewDate"
-          [events]="eventosCalendario"
-          (eventClicked)="mostrarDetalles($event.event.meta.cita)"
-          [refresh]="refresh">
-        </mwl-calendar-day-view>
-  
-        <mwl-calendar-month-view
-          *ngIf="currentView === 'month'"
-          [viewDate]="viewDate"
-          [events]="eventosCalendario"
-          (eventClicked)="mostrarDetalles($event.event.meta.cita)"
-          [refresh]="refresh">
-        </mwl-calendar-month-view>
-      </div>
-    </div>
-  
-    <div class="form-section">
-      <h2 class="section-title">Historial de Citas</h2>
+  <div class="form-section">
+    <h2 class="section-title">Agendar Nueva Cita</h2>
+    <form>
       <div class="grid-container">
-        <input type="date" class="input" [(ngModel)]="filtroInicio" name="filtroInicio" />
-        <input type="date" class="input" [(ngModel)]="filtroFin" name="filtroFin" />
+        <div>
+          <label>Cliente:</label>
+          <input type="text" class="input" [(ngModel)]="nuevoCliente" name="cliente" placeholder="Nombre del cliente" />
+        </div>
+        <div>
+          <label>Fecha:</label>
+          <input type="date" class="input" [(ngModel)]="nuevaFecha" name="fecha" />
+        </div>
+        <div>
+          <label>Hora:</label>
+          <select class="input" [(ngModel)]="nuevaHora" name="hora">
+            <option *ngFor="let hora of horasDisponibles" [value]="hora" [disabled]="horariosOcupados.includes(hora)">
+              {{ hora }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button type="button" class="btn-save" (click)="agendarCita()">Agendar Cita</button>
+        </div>
       </div>
-      <table class="plans-table mt-4">
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citasHistorialFiltrado">
-            <td>{{ cita.cliente }}</td>
-            <td>{{ cita.fecha }}</td>
-            <td>{{ cita.hora }}</td>
-            <td>{{ cita.estado }}</td>
-            <td><button class="btn-action" (click)="mostrarDetalles(cita)">Detalles</button></td>
-          </tr>
-        </tbody>
-      </table>
+    </form>
+    <p class="text-green-700 mt-2" *ngIf="mensajeCita">{{ mensajeCita }}</p>
+  </div>
+
+  <div class="form-section">
+    <h2 class="section-title">Citas Programadas</h2>
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citasProgramadas">
+          <td>{{ cita.cliente }}</td>
+          <td>{{ cita.fecha }}</td>
+          <td>{{ cita.hora }}</td>
+          <td>{{ cita.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-section">
+    <h2 class="section-title">Calendario de Citas</h2>
+    <div class="calendar-controls">
+      <label for="calendarView">Vista:</label>
+      <select id="calendarView" class="input" [(ngModel)]="currentView">
+        <option value="month">Mes</option>
+        <option value="week">Semana</option>
+        <option value="day">Día</option>
+      </select>
+    </div>
+    <div class="calendar-wrapper">
+      <mwl-calendar-week-view
+        *ngIf="currentView === 'week'"
+        [viewDate]="viewDate"
+        [events]="eventosCalendario"
+        (eventClicked)="mostrarDetalles($event.event.meta.cita)"
+        [refresh]="refresh">
+      </mwl-calendar-week-view>
+
+      <mwl-calendar-day-view
+        *ngIf="currentView === 'day'"
+        [viewDate]="viewDate"
+        [events]="eventosCalendario"
+        (eventClicked)="mostrarDetalles($event.event.meta.cita)"
+        [refresh]="refresh">
+      </mwl-calendar-day-view>
+
+      <mwl-calendar-month-view
+        *ngIf="currentView === 'month'"
+        [viewDate]="viewDate"
+        [events]="eventosCalendario"
+        (eventClicked)="mostrarDetalles($event.event.meta.cita)"
+        [refresh]="refresh">
+      </mwl-calendar-month-view>
     </div>
   </div>
-  
-  <div class="modal-overlay" *ngIf="citaSeleccionada">
-    <div class="modal-content">
-      <span class="close" (click)="citaSeleccionada = null">&times;</span>
-      <h2 class="section-title">Detalles de la Cita</h2>
-      <p><strong>Cliente:</strong> {{ citaSeleccionada.cliente }}</p>
-      <p><strong>Fecha:</strong> {{ citaSeleccionada.fecha }}</p>
-      <p><strong>Hora:</strong> {{ citaSeleccionada.hora }}</p>
-      <p><strong>Estado:</strong> {{ citaSeleccionada.estado }}</p>
-      <p><strong>Notas:</strong> {{ citaSeleccionada.notas }}</p>
-      <p><strong>Recomendaciones:</strong> {{ citaSeleccionada.recomendaciones }}</p>
+
+  <div class="form-section">
+    <h2 class="section-title">Historial de Citas</h2>
+    <div class="grid-container">
+      <input type="date" class="input" [(ngModel)]="filtroInicio" name="filtroInicio" />
+      <input type="date" class="input" [(ngModel)]="filtroFin" name="filtroFin" />
     </div>
+    <table class="plans-table mt-4">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citasHistorialFiltrado">
+          <td>{{ cita.cliente }}</td>
+          <td>{{ cita.fecha }}</td>
+          <td>{{ cita.hora }}</td>
+          <td>{{ cita.estado }}</td>
+          <td><button class="btn-action" (click)="mostrarDetalles(cita)">Detalles</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+</div>
+
+<div class="modal-overlay" *ngIf="citaSeleccionada">
+  <div class="modal-content">
+    <span class="close" (click)="citaSeleccionada = null">&times;</span>
+    <h2 class="section-title">Detalles de la Cita</h2>
+    <p><strong>Cliente:</strong> {{ citaSeleccionada.cliente }}</p>
+    <p><strong>Fecha:</strong> {{ citaSeleccionada.fecha }}</p>
+    <p><strong>Hora:</strong> {{ citaSeleccionada.hora }}</p>
+    <p><strong>Estado:</strong> {{ citaSeleccionada.estado }}</p>
+    <p><strong>Notas:</strong> {{ citaSeleccionada.notas }}</p>
+    <p><strong>Recomendaciones:</strong> {{ citaSeleccionada.recomendaciones }}</p>
+  </div>
+</div>

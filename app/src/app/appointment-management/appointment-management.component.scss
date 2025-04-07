@@ -1,4 +1,5 @@
 
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -7,21 +8,22 @@
 }
 
 h1 {
-  color: #333;
+  color: #3e3e3e;
+  margin-bottom: 1rem;
 }
 
 .form-section {
   margin-top: 2rem;
   background: #f9f9f9;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .section-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #444;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
   margin-bottom: 1rem;
 }
 
@@ -37,15 +39,18 @@ h1 {
   border-radius: 6px;
   width: 100%;
   min-width: 180px;
+  font-size: 0.95rem;
 }
 
 .btn-save {
   background-color: #a1c037;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 
 .btn-save:hover {
@@ -56,6 +61,7 @@ h1 {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
 .plans-table th,
@@ -74,47 +80,16 @@ h1 {
   background: #a1c037;
   color: white;
   border: none;
-  padding: 0.3rem 0.7rem;
-  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 .btn-action:hover {
   background: #8cab2c;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 400px;
-  max-width: 90%;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #333;
-}
-
-/* Calendario */
 .calendar-controls {
   margin-bottom: 1rem;
   display: flex;
@@ -127,7 +102,7 @@ h1 {
   padding: 1rem;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .cal-month-view,
@@ -141,14 +116,14 @@ h1 {
 
   .cal-cell {
     border: 1px solid #eee;
-    padding: 10px;
+    padding: 8px;
     vertical-align: top;
-    border-radius: 8px;
-    height: 100px;
+    border-radius: 6px;
+    height: 90px;
   }
 
   .cal-cell-top {
-    font-weight: bold;
+    font-weight: 600;
     color: #444;
   }
 
@@ -163,5 +138,37 @@ h1 {
     width: 100%;
     box-sizing: border-box;
   }
-  
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #666;
 }

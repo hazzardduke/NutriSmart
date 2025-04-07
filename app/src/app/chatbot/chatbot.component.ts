@@ -12,6 +12,6 @@ export class ChatbotComponent {
   @Output() closeChatbot = new EventEmitter<void>();
 
   closeChat() {
-    this.closeChatbot.emit(); // Notifica al Dashboard que debe cerrarse
+    this.closeChatbot.emit(); 
   }
 }
