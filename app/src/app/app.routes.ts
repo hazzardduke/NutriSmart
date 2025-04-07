@@ -9,11 +9,13 @@ import { NutritionalPlanComponent } from './nutritional-plan/nutritional-plan.co
 import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { ClientManagementComponent } from './client-management/client-management.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent },
   { path: 'profile', component: PersonalrecordComponent },
