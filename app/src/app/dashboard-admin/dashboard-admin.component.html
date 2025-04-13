@@ -1,80 +1,74 @@
 <div class="admin-dashboard-container">
-    <h2 class="titulo-dashboard">
-      <i class="fas fa-chart-line"></i>
-      Dashboard Administrador
-    </h2>
-  
-    <!-- Métricas principales -->
-    <div class="cards-grid">
-      <div class="card-dashboard">
-        <h4>Clientes Activos</h4>
-        <p>{{ clientesActivos }}</p>
-      </div>
-      <div class="card-dashboard">
-        <h4>Citas Programadas Hoy</h4>
-        <p>{{ citasHoy }}</p>
-      </div>
+  <h2 class="titulo-dashboard">
+    <i class="fas fa-chart-line"></i>
+    Dashboard Administrador
+  </h2>
+
+  <div class="cards-grid">
+    <div class="card-dashboard">
+      <h4>Clientes Activos</h4>
+      <p>{{ clientesActivos }}</p>
     </div>
-  
-    <!-- Enlaces rápidos -->
-    <div class="quick-links">
-      <a routerLink="/expedientes" class="link-card">
-        <i class="fas fa-folder-open"></i> Ver Expedientes
-      </a>
-      <a routerLink="/citas" class="link-card">
-        <i class="fas fa-calendar-alt"></i> Ver Citas
-      </a>
-    </div>
-  
-    <!-- Tabla de citas -->
-    <div class="section">
-      <h3>Citas Programadas</h3>
-      <table class="table-citas">
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citas">
-            <td>{{ cita.cliente }}</td>
-            <td>{{ cita.fecha }}</td>
-            <td>{{ cita.estado }}</td>
-            <td>
-              <button class="btn-table">Reagendar</button>
-              <button class="btn-table cancel">Cancelar</button>
-              <button class="btn-table">Historial</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Tabla de planes -->
-    <div class="section">
-      <h3>Planes Nutricionales</h3>
-      <table class="table-citas">
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let plan of planes">
-            <td>{{ plan.cliente }}</td>
-            <td>{{ plan.estado }}</td>
-            <td>
-              <button class="btn-table">Modificar</button>
-              <button class="btn-table">Reenviar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="card-dashboard">
+      <h4>Citas Programadas Hoy</h4>
+      <p>{{ citasHoy }}</p>
     </div>
   </div>
-  
+
+
+
+
+  <div class="tabs">
+    <button [class.active]="tabActivo === 'citas'" (click)="tabActivo = 'citas'">Citas Programadas</button>
+    <button [class.active]="tabActivo === 'planes'" (click)="tabActivo = 'planes'">Planes Nutricionales</button>
+  </div>
+
+  <div class="section" *ngIf="tabActivo === 'citas'">
+    <h3>Citas Programadas</h3>
+    <table class="table-citas">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>{{ cita.cliente }}</td>
+          <td>{{ cita.fecha }}</td>
+          <td>{{ cita.estado }}</td>
+          <td>
+            <button class="btn-table">Reagendar</button>
+            <button class="btn-table cancel">Cancelar</button>
+            <button class="btn-table">Historial</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" *ngIf="tabActivo === 'planes'">
+    <h3>Planes Nutricionales</h3>
+    <table class="table-citas">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of planes">
+          <td>{{ plan.cliente }}</td>
+          <td>{{ plan.estado }}</td>
+          <td>
+            <button class="btn-table">Modificar</button>
+            <button class="btn-table">Reenviar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

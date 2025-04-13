@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard-admin.component.scss'
 })
 export class DashboardAdminComponent {
+  tabActivo: 'citas' | 'planes' = 'citas'; // Inicializa con 'citas' por defecto
+
   clientesActivos = 48;
   citasHoy = 12;
 
@@ -23,5 +25,4 @@ export class DashboardAdminComponent {
     { cliente: 'Luis Rojas', estado: 'En revisión' },
     { cliente: 'María Gómez', estado: 'Completado' },
   ];
-
 }

@@ -9,10 +9,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 export class FidelityManagementComponent {
-  maxStamps: number = 7; // Máximo de sellos por tarjeta
-  showNotification: boolean = false; // Para mostrar el mensaje de sello agregado
+  maxStamps: number = 7; 
+  showNotification: boolean = false; 
 
-  // Lista de clientes con su progreso
+
   clients = [
     { name: 'Jhon Doe', stamps: 5 },
     { name: 'Jane Smith', stamps: 3 },
@@ -20,14 +20,14 @@ export class FidelityManagementComponent {
     { name: 'Ana López', stamps: 2 },
   ];
 
-  scannedClient: any = this.clients[0]; // Cliente escaneado por defecto (simulación)
+  scannedClient: any = this.clients[0]; 
 
-  // Método para agregar un sello al cliente escaneado
+
   addStampToClient(): void {
     if (this.scannedClient && this.scannedClient.stamps < this.maxStamps) {
       this.scannedClient.stamps++;
 
-      // Mostrar la notificación
+      
       this.showNotification = true;
       setTimeout(() => {
         this.showNotification = false;
@@ -35,12 +35,12 @@ export class FidelityManagementComponent {
     }
   }
 
-  // Genera el número de estrellas llenas
+
   getStars(stamps: number): Array<number> {
     return Array(stamps).fill(0);
   }
 
-  // Genera el número de estrellas vacías
+  
   getEmptyStars(stamps: number): Array<number> {
     return Array(this.maxStamps - stamps).fill(0);
   }

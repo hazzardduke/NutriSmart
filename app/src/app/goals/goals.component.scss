@@ -283,3 +283,28 @@
   top: -24px;
   z-index: 4;
 }
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  button {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #a1c037;
+      color: white;
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}

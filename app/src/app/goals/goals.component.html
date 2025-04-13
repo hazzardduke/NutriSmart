@@ -1,11 +1,11 @@
 <div class="container p-4">
   <h1 class="text-2xl font-bold mb-4">Gestión de Objetivos Nutricionales</h1>
-  <hr />  <br />
+  <hr /><br />
+
+
   <div class="form-section">
-    
     <form>
-      
-      <div class="objetivo" >
+      <div class="objetivo">
         <h2 class="section-title">Definir Objetivo Nutricional</h2>
         <div>
           <label for="tipo">Tipo de Objetivo</label>
@@ -33,53 +33,48 @@
       </div>
     </form>
   </div>
-  <hr /> <br />
+
+  <hr /><br />
+
+
   <div class="form-section">
     <div class="objetivo">
-    <h2 class="section-title">Mis Objetivos</h2>
-    <div class="objetivo" *ngFor="let obj of objetivos">
-      <h4>{{ obj.tipo }}</h4>
-      <p>{{ obj.meta }}</p>
-      <p><strong>Fecha meta:</strong> {{ obj.fecha }}</p>
-  
-      <p><strong>Progreso:</strong> {{ obj.progreso }}%</p>
-  
-      <div class="progress-wrapper">
-        <div
-          class="progress-bar"
-          [style.width.%]="obj.progreso"
-        ></div>
-        <div
-          class="thumb"
-          [style.left.%]="obj.progreso"
-        ></div>
-        <span class="progress-text">{{ obj.progreso }}%</span>
+      <h2 class="section-title">Mis Objetivos</h2>
+
+      <div class="tabs">
+        <button [class.active]="tabInterno === 'objetivos'" (click)="tabInterno = 'objetivos'">Objetivos</button>
+        <button [class.active]="tabInterno === 'recomendaciones'" (click)="tabInterno = 'recomendaciones'">Recomendaciones</button>
       </div>
-      
-  
-      <input
-        type="range"
-        min="0"
-        max="100"
-        [(ngModel)]="obj.progreso"
-        class="range-hidden"
-      />
+
+
+      <div *ngIf="tabInterno === 'objetivos'">
+        <div class="objetivo" *ngFor="let obj of objetivos">
+          <h4>{{ obj.tipo }}</h4>
+          <p>{{ obj.meta }}</p>
+          <p><strong>Fecha meta:</strong> {{ obj.fecha }}</p>
+          <p><strong>Progreso:</strong> {{ obj.progreso }}%</p>
+
+          <div class="progress-wrapper">
+            <div class="progress-bar" [style.width.%]="obj.progreso"></div>
+            <div class="thumb" [style.left.%]="obj.progreso"></div>
+            <span class="progress-text">{{ obj.progreso }}%</span>
+          </div>
+
+          <input type="range" min="0" max="100" [(ngModel)]="obj.progreso" class="range-hidden" />
+        </div>
+      </div>
+
+   
+      <div *ngIf="tabInterno === 'recomendaciones'">
+        <div class="recomendacion" *ngFor="let rec of recomendaciones">
+          <p><strong>{{ rec.fecha }}</strong>: {{ rec.resumen }}</p>
+          <button class="btn btn-sm btn-primary" (click)="abrirModal(rec)">Ver Detalles</button>
+          <br><br>
+        </div>
+      </div>
     </div>
   </div>
-  
 
-  <hr /> <br>
-
-  <div class="objetivo">
-    <h2 class="section-title">Recomendaciones del Nutricionista</h2>
-    <div class="recomendacion" *ngFor="let rec of recomendaciones">
-      <p><strong>{{ rec.fecha }}</strong>: {{ rec.resumen }}</p>
-      <button class="btn btn-sm btn-primary" (click)="abrirModal(rec)">
-        Ver Detalles
-      </button>
-      <br>      <br> 
-    </div>
-  </div>
 
   <div class="modal-bg" *ngIf="selectedRecomendacion">
     <div class="detalles">
@@ -90,7 +85,8 @@
     </div>
   </div>
 
-  <hr /> <br>
+  <hr /><br />
+
 
   <div class="objetivo">
     <h2 class="section-title">Planes Nutricionales Existentes</h2>
@@ -115,7 +111,7 @@
   </div>
 </div>
 
-<!-- Modal fuera del flujo del contenido -->
+
 <div *ngIf="verDetalles" class="modal-overlay">
   <div class="modal-content">
     <span class="close" (click)="verDetalles = false">&times;</span>
@@ -124,13 +120,7 @@
       <table class="plans-table">
         <thead>
           <tr>
-            <th>Alimentos</th>
-            <th>Porciones</th>
-            <th>Desayuno</th>
-            <th>Merienda #1</th>
-            <th>Almuerzo</th>
-            <th>Merienda #2</th>
-            <th>Cena</th>
+            <th>Alimentos</th><th>Porciones</th><th>Desayuno</th><th>Merienda #1</th><th>Almuerzo</th><th>Merienda #2</th><th>Cena</th>
           </tr>
         </thead>
         <tbody>

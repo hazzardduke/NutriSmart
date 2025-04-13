@@ -18,6 +18,8 @@ interface ObjetivoNutricional {
   styleUrls: ['./goals.component.scss']
 })
 export class GoalsComponent {
+  tabInterno: 'objetivos' | 'recomendaciones' = 'objetivos';
+
   objetivos: ObjetivoNutricional[] = [
     {
       tipo: 'Pérdida de peso',
@@ -59,6 +61,7 @@ export class GoalsComponent {
   guardarObjetivo() {
     this.objetivos.push({ ...this.nuevoObjetivo });
     this.nuevoObjetivo = { tipo: '', meta: '', fecha: '', progreso: 0 };
+    this.tabInterno = 'objetivos'; // opcional: regresar a tab de objetivos
   }
 
   abrirModal(rec: any) {
@@ -71,10 +74,7 @@ export class GoalsComponent {
 
   exportarPDF() {
     const element = document.getElementById('pdf-content');
-    if (!element) {
-      console.error('No se encontró el elemento #pdf-content');
-      return;
-    }
+    if (!element) return;
 
     html2pdf()
       .set({
